@@ -1,0 +1,114 @@
+{
+  "storage_groups": {
+    "WATER_REACTIVE": {
+      "title": "Water-Reactive & Pyrophoric",
+      "cabinet": "Cabinet A: Dry / Inert Box (No Water Sprinklers)",
+      "priority": 1,
+      "badge_color": "#7c2d12",
+      "description": "Substances that react violently or emit flammable gases upon contact with water or air."
+    },
+    "OXIDIZER": {
+      "title": "Oxidizing Agents",
+      "cabinet": "Cabinet B: Oxidizers Cabinet (Keep Away from Organics)",
+      "priority": 2,
+      "badge_color": "#b45309",
+      "description": "Chemicals that may cause or intensify fire; store strictly away from flammables and reducing agents."
+    },
+    "FLAMMABLE": {
+      "title": "Flammable Liquids & Solids",
+      "cabinet": "Cabinet C: Ventilated Flammable Safety Cabinet",
+      "priority": 3,
+      "badge_color": "#dc2626",
+      "description": "Volatile solvents and ignitable solids requiring fire-rated containment."
+    },
+    "ACUTE_TOXIC": {
+      "title": "Acutely Toxic & Poisons",
+      "cabinet": "Cabinet D: Locked Poison / Toxic Cabinet",
+      "priority": 4,
+      "badge_color": "#6b21a8",
+      "description": "Chemicals with fatal or toxic acute inhalation, dermal, or oral hazard (GHS Cat. 1-3)."
+    },
+    "CORROSIVE_ACID": {
+      "title": "Corrosive Acids",
+      "cabinet": "Cabinet E1: Acid Corrosion-Resistant Cabinet",
+      "priority": 5,
+      "badge_color": "#ea580c",
+      "description": "Inorganic and organic acids; keep strictly separated from bases and cyanides/sulfides."
+    },
+    "CORROSIVE_BASE": {
+      "title": "Corrosive Bases (Alkalies)",
+      "cabinet": "Cabinet E2: Base / Alkali Corrosion-Resistant Cabinet",
+      "priority": 6,
+      "badge_color": "#2563eb",
+      "description": "Hydroxides, amines, and alkaline solutions; store in secondary polyethylene trays away from acids."
+    },
+    "HEALTH_HAZARD": {
+      "title": "Chronic Health Hazards (CMR / Sensitizers)",
+      "cabinet": "Cabinet F: Designated Hazardous / Well-Ventilated Shelf",
+      "priority": 7,
+      "badge_color": "#ca8a04",
+      "description": "Carcinogens, mutagens, reproductive toxins, or target organ toxicants."
+    },
+    "GENERAL_STORAGE": {
+      "title": "General Laboratory Chemicals",
+      "cabinet": "Cabinet G: Standard General Chemical Shelving",
+      "priority": 8,
+      "badge_color": "#16a34a",
+      "description": "Low-hazard salts, buffers, and mild irritants compatible with standard shelving."
+    }
+  },
+  "compatibility_matrix": {
+    "WATER_REACTIVE": {
+      "WATER_REACTIVE": {"status": "caution", "reason": "Store together only in dry secondary containment; check individual reactivity."},
+      "OXIDIZER": {"status": "incompatible", "reason": "Extreme fire and explosion hazard upon contact."},
+      "FLAMMABLE": {"status": "incompatible", "reason": "High fire risk; water-reactives can ignite volatile vapors."},
+      "ACUTE_TOXIC": {"status": "incompatible", "reason": "Isolate water-reactives from toxic inventory to prevent toxic plume release."},
+      "CORROSIVE_ACID": {"status": "incompatible", "reason": "Violent exothermic reaction with aqueous acids and evolution of flammable/toxic gas."},
+      "CORROSIVE_BASE": {"status": "incompatible", "reason": "Violent reaction with aqueous bases."},
+      "HEALTH_HAZARD": {"status": "incompatible", "reason": "Strict isolation required for water-reactive compounds."},
+      "GENERAL_STORAGE": {"status": "incompatible", "reason": "Keep away from hydrated salts and aqueous buffers."}
+    },
+    "OXIDIZER": {
+      "OXIDIZER": {"status": "compatible", "reason": "Compatible oxidizers (separate strong peroxides from inorganic nitrates)."},
+      "FLAMMABLE": {"status": "incompatible", "reason": "Severe fire/explosion hazard: oxidizers fuel rapid combustion of organics."},
+      "ACUTE_TOXIC": {"status": "incompatible", "reason": "Isolate oxidizers from toxic organics."},
+      "CORROSIVE_ACID": {"status": "caution", "reason": "Use separate secondary trays; only oxidizing acids (e.g., HNO3) may share acid cabinets with caution."},
+      "CORROSIVE_BASE": {"status": "incompatible", "reason": "Separate oxidizers from bases and organic amines."},
+      "HEALTH_HAZARD": {"status": "incompatible", "reason": "Many CMR substances are organic and combustible; keep away from oxidizers."},
+      "GENERAL_STORAGE": {"status": "caution", "reason": "Store in dedicated tray away from combustible packaging."}
+    },
+    "FLAMMABLE": {
+      "FLAMMABLE": {"status": "compatible", "reason": "Compatible inside an approved flammable storage cabinet."},
+      "ACUTE_TOXIC": {"status": "caution", "reason": "Only flammable toxics may co-locate; otherwise lock non-flammable poisons separately."},
+      "CORROSIVE_ACID": {"status": "incompatible", "reason": "Acids catalyze violent decomposition or ignition of flammable solvents."},
+      "CORROSIVE_BASE": {"status": "caution", "reason": "Keep separated in secondary containment; volatile amines require flammable cabinet."},
+      "HEALTH_HAZARD": {"status": "caution", "reason": "Compatible if both are organic solvents; keep away from ignition sources."},
+      "GENERAL_STORAGE": {"status": "caution", "reason": "Flammables must remain inside fire-rated cabinet away from general shelves."}
+    },
+    "ACUTE_TOXIC": {
+      "ACUTE_TOXIC": {"status": "compatible", "reason": "Compatible in locked poison cabinet using unbreakable secondary trays."},
+      "CORROSIVE_ACID": {"status": "incompatible", "reason": "Acids can liberate lethal gases (e.g., HCN, H2S, Cl2) from toxic salts."},
+      "CORROSIVE_BASE": {"status": "caution", "reason": "Store in separate secondary trays inside locked containment."},
+      "HEALTH_HAZARD": {"status": "compatible", "reason": "Can share secure ventilated storage in separate trays."},
+      "GENERAL_STORAGE": {"status": "caution", "reason": "Acute toxins require locked access separated from general reagents."}
+    },
+    "CORROSIVE_ACID": {
+      "CORROSIVE_ACID": {"status": "compatible", "reason": "Compatible in acid cabinet (use separate polyethylene trays for mineral vs. organic acids)."},
+      "CORROSIVE_BASE": {"status": "incompatible", "reason": "Violent exothermic neutralization reaction, heat generation, and spattering."},
+      "HEALTH_HAZARD": {"status": "incompatible", "reason": "Corrosive acid fumes degrade containers and react with sensitive organics."},
+      "GENERAL_STORAGE": {"status": "caution", "reason": "Acid vapors corrode metal caps; keep acids in dedicated corrosion-resistant cabinet."}
+    },
+    "CORROSIVE_BASE": {
+      "CORROSIVE_BASE": {"status": "compatible", "reason": "Compatible in base/alkali cabinet with secondary containment."},
+      "HEALTH_HAZARD": {"status": "caution", "reason": "Use separate secondary trays to prevent alkaline hydrolysis."},
+      "GENERAL_STORAGE": {"status": "caution", "reason": "Store strong alkalies in dedicated corrosion-resistant trays."}
+    },
+    "HEALTH_HAZARD": {
+      "HEALTH_HAZARD": {"status": "compatible", "reason": "Compatible on designated, labeled hazardous chemical shelf."},
+      "GENERAL_STORAGE": {"status": "compatible", "reason": "Compatible if containers are sealed and clearly labeled."}
+    },
+    "GENERAL_STORAGE": {
+      "GENERAL_STORAGE": {"status": "compatible", "reason": "Safe for co-storage on standard laboratory shelving."}
+    }
+  }
+}

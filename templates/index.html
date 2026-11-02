@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemSegregate | GHS Chemical Compatibility Matrix & Cabinet Segregator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="app-header no-print">
+        <div class="container header-inner">
+            <div>
+                <h1>ChemSegregate <span class="badge-version">GHS / OSHA / TRGS 510</span></h1>
+                <p class="subtitle">Interactive Chemical Compatibility Matrix & Automated Storage Cabinet Segregator</p>
+            </div>
+            <div class="header-actions">
+                <a href="https://ghs-chemical-label-generator.onrender.com/" target="_blank" rel="noopener" class="btn btn-outline">
+                    🏷️ GHS Label Generator
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Input Panel -->
+        <section class="card input-section no-print">
+            <div class="input-header">
+                <div>
+                    <h2>1. Enter Laboratory Inventory</h2>
+                    <p class="hint">Enter CAS numbers or English chemical names (one per line or comma-separated, max 20 items).</p>
+                </div>
+                <div class="preset-buttons">
+                    <button type="button" id="btn-demo" class="btn btn-secondary">⚡ Load Standard Lab Preset (8 Reagents)</button>
+                    <button type="button" id="btn-clear" class="btn btn-ghost">Clear</button>
+                </div>
+            </div>
+
+            <textarea id="chemical-input" rows="5" placeholder="Example:&#10;67-64-1&#10;7647-01-0&#10;1310-73-2&#10;7697-37-2&#10;Sodium Azide&#10;Hydrogen Peroxide"></textarea>
+
+            <div class="action-bar">
+                <button type="button" id="btn-analyze" class="btn btn-primary">
+                    🔍 Generate Compatibility Matrix & Segregate Cabinets
+                </button>
+                <span id="status-msg" class="status-msg"></span>
+            </div>
+        </section>
+
+        <!-- Results Container -->
+        <div id="results-area" class="hidden">
+            <!-- Critical Conflicts Banner -->
+            <section id="conflicts-section" class="card alert-card hidden">
+                <div class="section-title-row">
+                    <h2>⚠️ Critical Storage Conflicts Detected</h2>
+                    <span class="conflict-count" id="conflict-count-badge">0 Conflicts</span>
+                </div>
+                <p class="hint">The following chemical pairs are strictly incompatible and must never share the same cabinet or secondary containment tray:</p>
+                <ul id="conflicts-list" class="conflicts-list"></ul>
+            </section>
+
+            <!-- Segregated Cabinets (Print-Ready) -->
+            <section class="card">
+                <div class="section-title-row">
+                    <div>
+                        <h2>2. Segregated Storage Cabinets Plan</h2>
+                        <p class="hint">Chemicals automatically assigned by primary GHS hazard hierarchy. Print this sheet to post on cabinet doors.</p>
+                    </div>
+                    <button type="button" id="btn-print" class="btn btn-secondary no-print">🖨️ Print Storage Plan / Save PDF</button>
+                </div>
+                <div id="cabinets-grid" class="cabinets-grid"></div>
+            </section>
+
+            <!-- N x N Compatibility Matrix -->
+            <section class="card">
+                <h2>3. Pairwise Chemical Compatibility Matrix</h2>
+                <div class="legend-bar">
+                    <span class="legend-item"><span class="dot dot-compatible"></span> <strong>Compatible:</strong> Safe for co-storage within designated group</span>
+                    <span class="legend-item"><span class="dot dot-caution"></span> <strong>Caution:</strong> Require separate secondary containment trays</span>
+                    <span class="legend-item"><span class="dot dot-incompatible"></span> <strong>Incompatible:</strong> Strict isolation required (fire / toxic gas hazard)</span>
+                </div>
+                <div class="table-responsive">
+                    <table id="matrix-table" class="matrix-table"></table>
+                </div>
+                <p class="matrix-tip">💡 Hover over or click any cell in the matrix to inspect the specific chemical reaction hazard.</p>
+                <div id="cell-inspector" class="cell-inspector">Select or hover over a matrix cell to view compatibility details.</div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="app-footer no-print">
+        <div class="container">
+            <p><strong>Disclaimer:</strong> For laboratory planning and educational reference based on GHS, US OSHA, and TRGS 510 segregation rules. Always verify Section 7 & 10 of the manufacturer's Safety Data Sheet (SDS).</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
