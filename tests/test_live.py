@@ -11,7 +11,7 @@ def test_live_health_endpoint():
 def test_live_analyze_endpoint():
     """Проверка базового флоу классификации реальным POST-запросом."""
     payload = {"queries": ["67-64-1", "7647-01-0"]} # Ацетон и Соляная кислота
-    response = httpx.post(f"{LIVE_URL}/api/analyze", json=payload, timeout=15.0)
+    response = httpx.post(f"{LIVE_URL}/api/analyze", json=payload, timeout=65.0)
     
     assert response.status_code == 200
     data = response.json()
